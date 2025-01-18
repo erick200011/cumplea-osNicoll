@@ -20,9 +20,27 @@
 </head>
 
 <body>
+  
+<!-- Botón para activar/desactivar música -->
+<div id="musica-container" style="display: none;">
+  <button id="musica-boton">Soft Music</button>
+</div>
+
+<!-- Botón para activar PARTYHARD -->
+<div id="fiesta-boton" style="display: none;">
+  <button id="fiestaBtn" class="golden-button">PRENDER Fiesta</button>
+</div>
+
+
+<!-- Elementos adicionales para el efecto de cumpleaños -->
+<div id="efecto-cumple" style="display: none;">
+  <img src="image/torta.png" alt="Pastel de cumpleaños" id="pastel-cumple">
+</div>
+
+
   <!-- Contenedor principal de la checkbox -->
   <label class="antorcha">
-    <div class="simple-text">Click to light</div>
+
     <!-- Checkbox  Antorcha -->
     <input type="checkbox" /> <!-- checked="checked" en caso de querer que este seleccionado-->
     
@@ -80,6 +98,11 @@
       </div>
     </div>
   </label>
+
+  <!-- El texto que queremos mostrar cuando la checkbox no esté marcada -->
+<p id="texto-modo-nocturno" style="display: none;">
+  ¡Estás en el modo nocturno! Activa el modo claro para ver los efectos.
+</p>
 
   <!-- Enlace al archivo de JavaScript -->
   <script src="efectos.js"></script>

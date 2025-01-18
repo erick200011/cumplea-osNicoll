@@ -9,6 +9,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/*fondos*/
 /* Estilo para el modo nocturno */
 .modo-nocturno {
   background: #000000;
@@ -16,9 +17,182 @@ body {
 }
 
 /* Estilo para el modo claro */
+
+/* Aplicando el nuevo efecto a modo-claro */
 .modo-claro {
   background: #ffffff;
   color: #000000;
+}
+
+/*torta y demas elementos*/
+/* Estilos generales para la torta */
+#efecto-cumple {
+  display: none; /* Inicialmente oculto */
+  width: 250px;
+  height: 120px;
+  background-image: url('ruta-a-tu-imagen-de-torta.jpg'); /* Cambia la ruta a la imagen de la torta */
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Cuando se activa la checkbox, se mostrará el efecto de la torta */
+.modo-claro #efecto-cumple {
+  display: block;
+  transform: scale(1); /* Asegúrate de ajustar el tamaño */
+}
+
+/* Efecto visual adicional para un toque de animación */
+@keyframes aparecerTorta {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modo-claro #efecto-cumple {
+  animation: aparecerTorta 1s ease-out forwards;
+}
+
+/* boton de fiesta */
+#fiestaBtn {
+  padding: 20px 40px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.flash {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+/*musica*/
+#musica-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+#musica-boton {
+  display: none; /* Inicialmente oculto */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: #ff4500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+}
+
+#musica-boton:hover {
+  background: #ff5500;
+}
+
+
+/* Botón de FIESTA LOCA en modo claro */
+.golden-button {
+  touch-action: manipulation;
+  display: inline-block;
+  outline: none;
+  font-family: inherit;
+  font-size: 1em;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0.3em;
+  height: 2.0em;
+  line-height: 0.5em;
+  text-transform: uppercase;
+  padding: 0 1em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+    inset 0 -2px 5px 1px rgba(139, 66, 8, 1),
+    inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+  background-image: linear-gradient(
+    160deg,
+    #a54e07,
+    #b47e11,
+    #fef1a2,
+    #bc881b,
+    #a54e07
+  );
+  border: 1px solid #a55d07;
+  color: rgb(120, 50, 5);
+  text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-size: 100% 100%;
+  background-position: center;
+  
+  /* Posicionamiento en la esquina inferior izquierda */
+  position: fixed;
+  bottom: 100px;
+  left: 100px;
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+.golden-button:focus,
+.golden-button:hover {
+  background-size: 150% 150%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23),
+    inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+  border: 1px solid rgba(165, 93, 7, 0.6);
+  color: rgba(120, 50, 5, 0.8);
+}
+
+.golden-button:active {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+    inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+}
+
+/*MODO LOCO*/
+
+@keyframes flash {
+  0% {
+    background-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: scale(1);
+    opacity: 1;
+  }
+  25% {
+    background-color: #ffdd00;
+    box-shadow: 0 0 20px rgba(255, 223, 0, 0.8);
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  50% {
+    background-color: #ff4500;
+    box-shadow: 0 0 30px rgba(255, 69, 0, 0.8);
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  75% {
+    background-color: #000000;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.flash {
+  animation: flash 1s ease-in-out infinite;
 }
 
 
