@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Evento para controlar la reproducción de la canción de fiesta y activar el efecto flash
   fiestaBoton.addEventListener("click", function () {
     if (cancionFiesta.paused) {
+      musica.pause(); 
       cancionFiesta.play(); // Reproducir la canción de fiesta
       body.classList.add("flash"); // Añadir la clase flash para activar la animación
       fiestaBtn.textContent = "Detener Fiesta"; // Cambiar el texto del botón
