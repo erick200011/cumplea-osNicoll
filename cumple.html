@@ -1,3 +1,4 @@
+
 <!DOCTYPE html> <!-- Usare comentarios para anotar lo aprendido y que sea más fácil para personas ajenas entender el código -->
 <html lang="es"> <!-- Definimos el idioma de la página (opcional pero sirve para los metadatos) -->
 
@@ -6,7 +7,7 @@
   <meta charset="UTF-8" /> <!-- Definimos la codificación de caracteres de la página (recomendable UTF-8 para evitar errores con acentos y caracteres) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Definimos la escala de la página para dispositivos móviles -->
   
-  <title>Happy Birthday!!!</title> <!-- Definimos el título de la página, la etiqueta title y el elemento es lo que saldra en la pestaña superior del buscador -->
+  <title>Happy Birthday!!!  ヽ(ヅ)ノ</title> <!-- Definimos el título de la página, la etiqueta title y el elemento es lo que saldra en la pestaña superior del buscador -->
   
   <!-- Favicon -->
   <link rel="icon" href="image/torta.ico" type="image/x-icon" />
@@ -20,32 +21,52 @@
 </head>
 
 <body>
-  
-<!-- Botón para activar/desactivar música -->
-<div id="musica-container" style="display: none;">
-  <button id="musica-boton">Soft Music</button>
+  <!-- Mensaje que aparece al inicio -->
+  <div id="mensaje-inicial" class="initial-text" >¡Enciende la vela!</div>
+
+  <div id="birthdayMessage" class="hidden">
+    <h1>🎉 ¡FELIZ CUMPLEAÑOS! 🎉</h1>
+    <p>Espero que disfrutes muchisímo este día especial<3</p>
+  </div>
+
+    <!-- Elementos adicionales para el efecto de cumpleaños -->
+    <div id="efecto-cumple" style="display: none;">
+      <img src="image/torta.png" alt="Imagen de torta de cumpleaños" id="pastel-cumple">
+    </div>
+
+    
+  <!-- Botón para activar PARTYHARD -->
+  <div id="fiesta-boton" style="display: none;">
+    <button id="fiestaBtn" class="golden-button">PRENDER Fiesta</button>
+  </div>
+
+  <!-- Botón para activar/desactivar música -->
+<!-- Contenedor del botón de música -->
+<div id="musica-container" style="display: none;"> <!-- Oculto inicialmente -->
+  <button id="musica-boton" alt="Chill out" style="display: none;">
+    <i>C</i>
+    <i>h</i>
+    <i>i</i>
+    <i>l</i>
+    <i>l</i>
+    <i>&nbsp;</i>
+    <i>o</i>
+    <i>u</i>
+    <i>t</i>
+  </button>
 </div>
 
-<!-- Botón para activar PARTYHARD -->
-<div id="fiesta-boton" style="display: none;">
-  <button id="fiestaBtn" class="golden-button">PRENDER Fiesta</button>
-</div>
+<!-- Botón para el mensaje serio -->
+  <div id="nostalgic-boton" style="display: none;">
+    <a href="pagina_mensaje/mensaje.html" class="btn">Recuerdos</a>
+  </div>
 
-
-<!-- Elementos adicionales para el efecto de cumpleaños -->
-<div id="efecto-cumple" style="display: none;">
-  <img src="image/torta.png" alt="Pastel de cumpleaños" id="pastel-cumple">
-</div>
 
 
   <!-- Contenedor principal de la checkbox -->
-  <label class="antorcha">
-
-    <!-- Checkbox  Antorcha -->
-    <input type="checkbox" /> <!-- checked="checked" en caso de querer que este seleccionado-->
-    
-    <!-- Marcador visual de la checkbox -->
-    <div class="checkmark"></div>
+    <label class="antorcha">
+      <input type="checkbox" id="checkbox-antorcha" />
+      <div class="checkmark"></div>
     
     <!-- Elementos de la antorcha Minecraft -->
     <div class="torch">
@@ -98,11 +119,6 @@
       </div>
     </div>
   </label>
-
-  <!-- El texto que queremos mostrar cuando la checkbox no esté marcada -->
-<p id="texto-modo-nocturno" style="display: none;">
-  ¡Estás en el modo nocturno! Activa el modo claro para ver los efectos.
-</p>
 
   <!-- Enlace al archivo de JavaScript -->
   <script src="efectos.js"></script>
