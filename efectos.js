@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
       musica.pause(); 
       cancionFiesta.pause(); 
       body.classList.remove("flash"); 
+      body.style.transform = "scale(1)"; // Restaurar el zoom
+    
     }
   });
 
@@ -81,17 +83,52 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-  // Evento para controlar la reproducción de la canción de fiesta y activar el efecto flash
-  fiestaBoton.addEventListener("click", function () {
-    if (cancionFiesta.paused) {
-      musica.pause(); 
-      cancionFiesta.play(); // Reproducir la canción de fiesta
-      body.classList.add("flash"); // Añadir la clase flash para activar la animación
-      fiestaBtn.textContent = "Detener Fiesta"; // Cambiar el texto del botón
-    } else {
-      cancionFiesta.pause(); // Pausar la canción de fiesta
-      body.classList.remove("flash"); // Quitar la clase flash para detener la animación
-      fiestaBtn.textContent = "Iniciar Fiesta"; // Cambiar el texto del
-    }
-  });
+fiestaBoton.addEventListener("click", function () {
+  if (cancionFiesta.paused) {
+    musica.pause(); // Detener la música anterior si estaba sonando
+    cancionFiesta.play(); // Reproducir la canción de fiesta
+    body.classList.add("flash"); // Añadir la clase flash para activar la animación
+    body.style.transform = "scale(1.1)"; // Añadir zoom temporal
+    fiestaBtn.textContent = "Detener Fiesta"; // Cambiar el texto del botón
+    
+    // Activar globos y confetis con party.js
+    party.confetti(fiestaBoton, {
+      count: party.variation.range(80, 120), // Ajustar la cantidad de confetis
+    });
+    
+    party.sparkles(fiestaBoton, {
+      count: 40, // Ajustar la cantidad de chispas o globos
+    });
+
+    // Iniciar fuegos artificiales con Fireworks.js
+    const container = document.getElementById('fireworks-container') || body;
+    const fireworks = new Fireworks(container, {
+      speed: 3,
+      acceleration: 1.25,
+      friction: 0.95,
+      gravity: 1.5,
+      particles: 50,
+      explosion: 7,
+      count: 10,
+      boundaries: {
+        top: 50,
+        bottom: container.clientHeight,
+        left: 50,
+        right: container.clientWidth
+      }
+    });
+
+    fireworks.start(); // Iniciar los fuegos artificiales
+
+    body.classList.remove("modo-claro");
+    body.classList.add("modo-nocturno");
+
+  } else {
+    cancionFiesta.pause(); // Pausar la canción de fiesta
+    body.classList.remove("flash"); // Quitar la clase flash para detener la animación
+    body.style.transform = "scale(1)"; // Restaurar el zoom
+    fiestaBtn.textContent = "Iniciar Fiesta"; // Cambiar el texto del botón
+    fireworks.pause(); // no funciona? 
+  }
+});
 });

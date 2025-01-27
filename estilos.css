@@ -57,18 +57,73 @@ body::before {
   opacity: 0.3; /* Partículas más sutiles */
 }
 
+/* Movimiento más natural de partículas */
 @keyframes moveParticles {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-10px, -10px);
-  }
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-5px, -5px); }
+  100% { transform: translate(0, 0); }
 }
 
 body::before {
-  animation: moveParticles 10s linear infinite; /* Movimiento constante */
+  animation: moveParticles 15s ease-in-out infinite;
 }
+
+/*para moviles*/
+
+/* Estilos para pantallas de dispositivos móviles */
+@media only screen and (max-width: 500px) {
+  /* Ajuste general del body */
+  body {
+    padding: 20px; /* Añade un poco de padding para dispositivos pequeños */
+    overflow: auto; /* Permite el scroll si el contenido se desborda */
+  }
+
+  /* Ajuste del mensaje de cumpleaños */
+  #birthdayMessage {
+    width: 70%; /* Asegura que el mensaje no se desborde en pantallas pequeñas */
+    font-size: 0.75em; /* Ajuste del tamaño de texto */
+  }
+
+  /* Ajuste de la torta y elementos centrales */
+  #efecto-cumple {
+    top: auto;
+    bottom: 105%;
+    right: auto;
+    left: 20%;
+    transform: translate(-50%, -50%) scale(0.7); /* Ajuste de posición y tamaño */
+  }
+
+
+  /* Ajuste de iconos dentro de los botones (si aplica) */
+  button i {
+    font-size: 12px; /* Ajusta el tamaño de las letras */
+    letter-spacing: 2px; /* Reduce el espaciado */
+  }
+  /* Botones */
+  #fiesta-boton{
+    position: fixed;
+    bottom: auto;
+    left: 300px;
+    transform: translate(-100%, 5px);
+    bottom: 485px; /* Espaciado específico */
+  }
+
+    /* Botones */
+    #nostalgic-boton {
+      position: absolute;
+      bottom: 25px;
+      left: 145px;
+      transform: translate(-50%, 79px);
+    }
+
+    #musica-container {  
+      position: absolute;
+      width: 100%;
+      bottom: 25px;
+      left: 145px;
+      transform: translate(-16%, 50px);
+    }
+  }
 
 
 
@@ -99,16 +154,6 @@ body::before {
   font-size: 1.2em; /* Reducido el tamaño de la fuente */
 }
 
-/* Estilos para mostrar y ocultar el mensaje */
-.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.visible {
-  opacity: 1;
-  visibility: visible;
-}
 /* Estilos para mostrar y ocultar el mensaje */
 .hidden {
   opacity: 0;
@@ -398,17 +443,13 @@ button:hover i:nth-child(11) {
   transition: all 0.3s ease;
 }
 
-
-
-
-
 /* Hidden checkbox input */
 .antorcha input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
-  width: 0;
+  width: 200;
 }
  
 .torch {
